@@ -25,6 +25,7 @@ public class CepSearch {
         System.out.println(cep.getCidade());
         System.out.println(cep.getBairro());
         System.err.println(cep.getCep());
+        System.out.println(cep.getDDD());
         
  
     }

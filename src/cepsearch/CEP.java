@@ -20,6 +20,7 @@ public class CEP {
     private String bairro;
     private String cidade;
     private String estado;
+    private String ddd;
 
     public void buscarCep(String cep) throws MalformedURLException, IOException {
         URL url = new URL("https://viacep.com.br/ws/" + cep + "/json/?callback=callback_name");
@@ -51,6 +52,9 @@ public class CEP {
         }
         if ("\"uf\"".equals(linha.split(":")[0].replace(" ", ""))) {
             this.estado = palavra;
+        }
+        if ("\"ddd\"".equals(linha.split(":")[0].replace(" ", ""))) {
+            this.ddd = palavra;
         }
     }
 
@@ -88,6 +92,9 @@ public class CEP {
 
     public String getEstado() {
         return estado;
+    }
+    public String getDDD() {
+        return ddd;
     }
 
     public void setEstado(String estado) {
